@@ -1,5 +1,7 @@
-# Ignore Folder
+# Ignore Folder & Files
 drafts/
+data_sample/*.csv
+data_sample/*.xlsx
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
