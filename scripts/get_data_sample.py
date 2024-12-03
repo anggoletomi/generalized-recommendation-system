@@ -1,8 +1,6 @@
 import os
 import shutil
 import kagglehub
-from dotenv import load_dotenv
-load_dotenv()
 
 def clear_kagglehub_cache(kaggle_path):
     cache_dir = os.path.expanduser(f"~/.cache/kagglehub/datasets/{kaggle_path}")
@@ -23,9 +21,14 @@ def get_kaggle_dataset(kaggle_path,ext_to_search=None):
     # Clear cache to ensure fresh download
     clear_kagglehub_cache(kaggle_path)
 
+    # Define Path
+
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.abspath(os.path.join(script_dir, ".."))
+
     # Download dataset from Kaggle
     download_path = kagglehub.dataset_download(kaggle_path)
-    destination_dir = os.path.join(os.getenv("GIT_FOLDER"), "generalized-recommendation-system/data")
+    destination_dir = os.path.join(project_root, "data/raw")
     os.makedirs(destination_dir, exist_ok=True)
 
     for root, _, files in os.walk(download_path):
