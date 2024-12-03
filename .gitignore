@@ -7,6 +7,11 @@ data/raw/*.csv
 data/raw/*.xlsx
 data/raw/*.xls
 
+# Allow .gitkeep files
+!data/.gitkeep
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
